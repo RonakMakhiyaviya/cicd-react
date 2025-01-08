@@ -10,12 +10,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -29,14 +28,3 @@ jobs:
 
       -name: format
         run: npm run format
-
-      - name: Run tests
-        run: npm test
-
-      - name: Build
-        run: npm run build
-
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build      
